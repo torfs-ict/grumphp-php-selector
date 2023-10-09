@@ -13,22 +13,23 @@ use TorfsICT\GrumPHP\PhpSelector\PhpSelectorReader;
 
 class ProcessBuilder extends \GrumPHP\Process\ProcessBuilder
 {
+    private ?string $executable;
+
     public function __construct(
-        private readonly PhpSelectorReader $phpSelectorReader,
+        PhpSelectorReader $phpSelectorReader,
         ExternalCommand $externalCommandLocator,
         IOInterface $io,
         ProcessConfig $config
     ) {
         parent::__construct($externalCommandLocator, $io, $config);
+        $this->executable = $phpSelectorReader->getExecutable();
     }
 
     public function buildProcess(ProcessArgumentsCollection $arguments): Process
     {
-        if ($this->phpSelectorReader->hasExecutable()) {
-            $executable = $this->phpSelectorReader->getExecutable();
-            assert(is_string($executable));
+        if (null !== $this->executable) {
             $array = $arguments->toArray();
-            array_unshift($array, $executable);
+            array_unshift($array, $this->executable);
             $arguments = new ProcessArgumentsCollection($array);
         }
 

@@ -3,10 +3,10 @@
     "description": "Select your local PHP executable to execute GrumPHP tasks",
     "type": "library",
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "phpro/grumphp": "^2.1"
     },
     "require-dev": {
-        "phpro/grumphp": "^2.1",
         "phpstan/phpstan": "^1.10",
         "friendsofphp/php-cs-fixer": "^3.34"
     },

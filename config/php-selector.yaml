@@ -1,0 +1,14 @@
+services:
+  php_selector_reader:
+    class: TorfsICT\GrumPHP\PhpSelector\PhpSelectorReader
+    arguments:
+      - '@GrumPHP\Util\Paths'
+
+  process_builder:
+    class: TorfsICT\GrumPHP\PhpSelector\Process\ProcessBuilder
+    arguments:
+      - '@php_selector_reader'
+      - '@GrumPHP\Locator\ExternalCommand'
+      - '@grumphp.io'
+      - '@GrumPHP\Configuration\Model\ProcessConfig'
+    public: true

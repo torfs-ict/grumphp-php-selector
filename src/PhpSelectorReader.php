@@ -7,7 +7,7 @@ namespace TorfsICT\GrumPHP\PhpSelector;
 use GrumPHP\Util\Paths;
 use Symfony\Component\Dotenv\Dotenv;
 
-readonly class PhpSelectorReader
+class PhpSelectorReader
 {
     private ?string $executable;
 

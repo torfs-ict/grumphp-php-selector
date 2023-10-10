@@ -2,9 +2,11 @@
     "name": "torfs-ict/grumphp-php-selector",
     "description": "Select your local PHP executable to execute GrumPHP tasks",
     "type": "library",
+    "version": "1.0.2",
     "require": {
         "php": "^8.1",
-        "phpro/grumphp": "^2.1"
+        "phpro/grumphp": "^2.1",
+        "nikic/php-parser": "^4.17"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.10",
